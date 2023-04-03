@@ -1,0 +1,25 @@
+matiere{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+ 
+<div class="container" >
+       
+ <div class="col-sm-8 center-block" >
+
+               
+            <div class="body">
+                        <div class="form-group">
+                 {{ form_label(form.libelle) }}
+                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+                {{ form_help(form.libelle) }}
+                {{ form_errors(form.libelle) }}
+                        </div>
+                   
+                   
+              </div>
+                   <div class="footer">
+                      <button class="btn btn-primary" >{{ button_label|default('Save') }}</button>
+                    </div>
+            </div>
+ </div>
+    
+{{ form_end(form) }}

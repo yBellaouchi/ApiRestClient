@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant {% endblock %}
+
+{% block body %}
+<div>
+                       <a href="{{ path('new_etudiant') }}"  class="btn btn-lg btn-info"><i class="material-icons">&#xE147;</i> <span>Ajouter Etudiant</span></a>
+                   </div>
+  <table class="table table-striped table-hover" class="col-sm-8">
+     <thead>
+
+                        <tr>
+                             {# <th>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="selectAll">
+                                    <label for="selectAll"></label>
+                                </span>
+                            </th>  #}
+                            <th>#</th>
+                             <th>nom</th>
+                             <th>prenom</th>
+                             <th>cin</th>
+                             <th>age</th>
+                             <th>filiere</th>
+                             <td>action</td>
+                             
+                    </thead>
+                   <tbody>
+                   {% for etudiant in etudiants %}
+                      <tr>
+                           
+                            <td>{{ etudiant.id }}</td>
+                            <td>{{ etudiant.nom}}</td>
+                            <td>{{ etudiant.prenom }}</td>
+                            <td>{{ etudiant.cin}}</td>
+                            <td>{{ etudiant.age }}</td>
+                             {% if  etudiant.filiere.libelle  is defined %}
+                            <td>{{  etudiant.filiere.libelle }}</td>
+                  {% else %}
+                            <td> -- </td>
+                  {% endif %}
+                           <td>
+                           
+                             <a href="{{ path('show_etudiant', {'id': etudiant.id}) }}" class="glyphicon glyphicon-cog"><i style="font-size:24px" class="fa" title="Show">&#xf007;</i></a>
+                                <a href="edit/{{etudiant.id}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                              <a href="delete/{{etudiant.id}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> 
+                            </td>
+                        </tr>
+                         
+
+
+  {% endfor %}
+  </tbody>                      
+  </table>
+    </div>
+    </div>
+
+ {% endblock %}

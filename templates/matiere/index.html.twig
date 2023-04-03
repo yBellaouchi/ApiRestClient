@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matiere {% endblock %}
+
+{% block body %}
+<div>
+                       <a href="{{ path('new_matiere') }}"  class="btn btn-lg btn-info"><i class="material-icons">&#xE147;</i> <span>Adjouter Matiere</span></a>
+                   </div>
+  <table class="table table-striped table-hover" class="col-sm-8">
+     <thead>
+
+                        <tr>
+                            <th>#</th>
+                             <th>Libelle</th>
+                             <th>filiere</th>
+                              <th>Action</th>
+                             
+                    </thead>
+                   <tbody>
+                   {% for matiere in matieres %}
+                      <tr>
+                           
+                            <td>{{ matiere.idMatiere }}</td>
+                            <td>{{ matiere.libelle}}</td>
+                             {% if  matiere.filiere.libelle  is defined %}
+                            <td>{{  matiere.filiere.libelle }}</td>
+                  {% else %}
+                            <td> -- </td>
+                  {% endif %}
+                            
+                           <td>
+                             <a href="{{ path('show_filiere', {'id': matiere.idMatiere}) }}" class="glyphicon glyphicon-cog"><i style="font-size:24px" class="fa" title="Show">&#xf007;</i></a>
+                                <a href="edit/{{matiere.idMatiere}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="delete/{{matiere.idMatiere}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> 
+                            </td>
+                        </tr>
+  {% endfor %}
+  </tbody>                      
+  </table>
+    </div>
+    </div>
+
+ {% endblock %}

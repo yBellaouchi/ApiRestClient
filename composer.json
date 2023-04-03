@@ -10,11 +10,15 @@
         "symfony/console": "*",
         "symfony/dotenv": "*",
         "symfony/flex": "^2",
+        "symfony/form": "6.0.*",
         "symfony/framework-bundle": "*",
+        "symfony/http-client": "6.0.*",
         "symfony/runtime": "*",
+        "symfony/twig-bundle": "6.0.*",
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.43"
     },
     "config": {
         "allow-plugins": {

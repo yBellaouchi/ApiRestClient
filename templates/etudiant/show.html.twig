@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant{% endblock %}
+
+{% block body %}
+   
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 bg-white ">
+                {##}
+                    <div class="d-flex flex-column align-items-center" <img class="photo" src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="">
+
+                        <p class="fw-bold h4 mt-3">{{[ etudiant.nom , ' ',etudiant.prenom ] | join }}</p>
+                       
+                        <div class="d-flex ">
+                            <a href="{{ path('edit_etudiant', {'id': etudiant.id}) }}"  class="btn btn-primary follow me-2" >edit</a>
+                     <a href="delete/{{etudiant.id}}"  class="btn btn-outline-primary message" >Delete</a>
+
+                        </div>
+                        </div>
+                         
+                    </div>
+                </div>
+                
+        </div>
+      
+        <div class="container">
+            <div class="row">
+                <div class="col-12 bg-white ">
+                   
+                    <div class="d-flex align-items-center justify-content-between border-bottom">
+                        <p class="py-2">nom</p>
+                        <p class="py-2 text-muted">{{ etudiant.nom }}</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-bottom">
+                        <p class="py-2">prenom</p>
+                        <p class="py-2 text-muted">{{ etudiant.prenom }}</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-bottom">
+                        <p class="py-2">cin</p>
+                        <p class="py-2 text-muted">{{ etudiant.cin }}</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-bottom">
+                        <p class="py-2">age</p>
+                        <p class="py-2 text-muted">{{ etudiant.age}}</p>
+                    </div>
+                    
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="py-2">filiere</p>
+                       {% if  etudiant.filiere.libelle  is defined %}
+                            <td>{{  etudiant.filiere.libelle }}</td>
+                  {% else %}
+                            <td> -- </td>
+                  {% endif %}
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+   
+{% endblock %}

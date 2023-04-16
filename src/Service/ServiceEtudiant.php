@@ -36,6 +36,7 @@ class ServiceEtudiant{
                 'age' => $age ,
                 'filiereLibelle' => $filiereLibelle ],
         ]);
+        // dd($response);
           return $response;
 
     }
